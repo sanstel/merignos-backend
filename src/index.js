@@ -2,6 +2,7 @@ import express from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import env from 'dotenv';
+import mongoose from 'mongoose';
 
 import routes from './routes';
 
@@ -9,6 +10,10 @@ env.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+});
 
 app.use(logger('dev'));
 app.use(express.json());
