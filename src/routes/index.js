@@ -4,11 +4,10 @@ import users from './users';
 
 const router = express.Router();
 
-router
-  .get('/', (req, res) => res.status(200).json({
-    status: 'success',
-    message: 'Welcome to Merignos API',
-  }));
+router.get('/', (req, res) => res.status(200).json({
+  status: 'success',
+  message: 'Welcome to Merignos API',
+}));
 
 router.use('/users', users);
 
