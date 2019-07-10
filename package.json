@@ -10,6 +10,10 @@
     "serve": "node ./build",
     "start": "npm run clearn && npm run build && npm run serve"
   },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/merignos/merignos-backend.git"
