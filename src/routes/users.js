@@ -10,10 +10,10 @@ const usersSchema = new Schema({
 
 const Users = Mongoose.model("Users", usersSchema);
 
-router
-  .get('/', (req, res) => res.status(200).json({
-    status: 'success',
-    users: [],
-  }));
+
+router.get('/', (req, res) => res.status(200).json({
+  status: 'success',
+  users: [],
+}));
 
 export default router;

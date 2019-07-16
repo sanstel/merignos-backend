@@ -3,6 +3,7 @@ import logger from 'morgan';
 import cors from 'cors';
 import env from 'dotenv';
 import mongoose from 'mongoose';
+import log from 'fancy-log';
 
 import routes from './routes';
 
@@ -17,15 +18,15 @@ mongoose.connect(process.env.DATABASE_URL, {
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
 app.use(cors());
 
 app.use('/api/v1', routes);
 
-const server = app.listen(PORT, () => console.log(`API listening at port ${PORT}`));
-
-server.on('error', e => {
-  throw new e;
-});
+const server = app.listen(PORT, () => log.info(`API listening at port ${PORT}`));
 
 export default server;
